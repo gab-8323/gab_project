@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-image: url('https://lh5.googleusercontent.com/p/AF1QipO8PJUggV7QXNFUlRnKiTDKRtw9jSZf7JcyvTGt=w750-h348-p-k-no');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .floating-window {
+            width: 500px;
+            height: 500px; /* Increased height for more content */
+            overflow: auto; /* Enable scrolling */
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transform: translateY(50px); /* Adjust the value to move the window downwards */
+            padding: 20px; /* Padding for inner content */
+            position: relative;
+            margin-top: 40px; /* Additional margin to move it downwards */
+        }
+
+        .scroll-container {
+            display: flex;
+            flex-direction: column;
+            animation: scroll 100s linear infinite;
+        }
+
+        .scroll-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(calc(-99%)); }
+        }
+
+        .entry-container {
+            margin-bottom: 20px;
+        }
+
+        .entry-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .entry-container input[type="text"],
+        .entry-container input[type="number"],
+        .entry-container input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .submit-container input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://127.0.0.1:5000" class="back-button">&#8592; Back</a>
+    <div class="floating-window">
+        <h2 style="text-align: center; margin-bottom: 20px;">Student Registration</h2>
+
+        <div class="scroll-container">
+            <!-- Placeholder images (if needed) -->
+            <!-- Ensure your form fields are within this container -->
+        </div>
+
+        <!-- Registration Form -->
+        <form action="#" method="post">
+            <div class="entry-container">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+
+            <div class="entry-container">
+                <label for="rollnumber">Roll Number:</label>
+                <input type="text" id="rollnumber" name="rollnumber" required>
+            </div>
+
+            <div class="entry-container">
+                <label for="branch">Branch:</label>
+                <input type="text" id="branch" name="branch" required>
+            </div>
+
+            <div class="entry-container">
+                <label for="year">Year:</label>
+                <input type="number" id="year" name="year" required>
+            </div>
+
+            <div class="entry-container">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+
+            <div class="entry-container">
+                <label for="parentphone">Parent's Phone Number:</label>
+                <input type="text" id="parentphone" name="parentphone" required>
+            </div>
+
+            <div class="entry-container">
+                <label for="village">Village Name:</label>
+                <input type="text" id="village" name="village" required>
+            </div>
+
+            <div class="entry-container">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="entry-container">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="submit-container">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript for resetting scroll position
+        const container = document.querySelector('.scroll-container');
+        container.addEventListener('animationiteration', () => {
+            container.style.animation = 'none';
+            setTimeout(() => container.style.animation = '', 0);
+        });
+    </script>
+</body>
+</html>

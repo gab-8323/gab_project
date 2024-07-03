@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-image: url('https://lh5.googleusercontent.com/p/AF1QipO8PJUggV7QXNFUlRnKiTDKRtw9jSZf7JcyvTGt=w750-h348-p-k-no');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .floating-window {
+            width: 500px;
+            max-height: 80vh; /* Adjust max-height as needed */
+            overflow: auto; /* Enable scrolling if content exceeds window height */
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transform: translateY(50px); /* Adjust the value to move the window downwards */
+            padding: 20px;
+            position: relative;
+        }
+
+        .details-container {
+            margin-bottom: 20px;
+        }
+
+        .details-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .details-container input[type="text"],
+        .details-container input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .edit-button,
+        .update-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <a href="login.html" class="back-button">&#8592; Back</a>
+
+    <div class="floating-window">
+        <div class="details-container">
+            <form id="updateForm" action="update" method="POST">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" value="{{ user['fullname'] }}" readonly>
+
+                <label for="rollnumber">Roll Number:</label>
+                <input type="text" id="rollnumber" name="rollnumber" value="{{ user['rollnumber'] }}" readonly>
+
+                <label for="branch">Branch:</label>
+                <input type="text" id="branch" name="branch" value="{{ user['branch'] }}" readonly>
+
+                <label for="year">Year:</label>
+                <input type="number" id="year" name="year" value="{{ user['year'] }}" readonly>
+
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" value="{{ user['phone'] }}" readonly>
+
+                <label for="parentphone">Parent's Phone Number:</label>
+                <input type="text" id="parentphone" name="parentphone" value="{{ user['parentphone'] }}" readonly>
+
+                <label for="village">Village Name:</label>
+                <input type="text" id="village" name="village" value="{{ user['village'] }}" readonly>
+
+                <input type="hidden" name="username" value="{{ user['username'] }}">
+                <button type="button" class="edit-button" onclick="editDetails()">Edit</button>
+                <button type="submit" class="update-button" style="display: none;">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function editDetails() {
+            const inputs = document.querySelectorAll('.details-container input');
+            inputs.forEach(input => {
+                input.removeAttribute('readonly');
+            });
+            document.querySelector('.edit-button').style.display = 'none';
+            document.querySelector('.update-button').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
