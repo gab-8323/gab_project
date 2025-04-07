@@ -1,7 +1,7 @@
 
 # Main Screen
 
-This is the code for the main screen of your web application.
+This is the code for the main screen of web application.
 
 ## HTML (index.html)
 
